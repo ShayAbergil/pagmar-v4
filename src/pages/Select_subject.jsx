@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { fetchSubjects } from "../utils/subjects_picker";
 import { useLocation, useNavigate } from "react-router-dom";
-// import "./SelectSubject.css";
+import HeaderImage from "../components/HeaderImage";
 
 const SelectSubject = () => {
   const [subjects, setSubjects] = useState([]);

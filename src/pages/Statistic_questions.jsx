@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../lib/supabase";
 import ArcSlider from "../components/ArcSlider";
+import HeaderImage from '../components/HeaderImage';
 
 const StatisticQuestions = () => {
     const navigate = useNavigate();
@@ -74,11 +75,11 @@ const StatisticQuestions = () => {
     };
 
     return (
-        <div className="questions-container">
+        <div className="container">
             <HeaderImage />
             <br></br>
             <h1>נתונים סטטיסטיים</h1>
-            <p className="section-description">
+            <p>
                 <b>הבהרה: </b>הנתונים משפיעים על לשון הפניה והתאמה של שאלות בהמשך הסקר.
                 הם עוברים אנונימיזציה בנפרד מן התשובות ונשמרים לצרכים סטטיסטיים בלבד.
             </p>
@@ -116,7 +117,7 @@ const StatisticQuestions = () => {
                 ))}
 
                 <div className="question-card">
-                    <p className="question-description">
+                    <p>
                         בדיון הפוליטי הפנים ישראלי, מקם/י את עצמך על הסקאלה כיום:
                         <br /> (ניתן לדלג על השאלה)
                     </p>
@@ -132,7 +133,7 @@ const StatisticQuestions = () => {
                 </div>
 
                 <div className="question-card">
-                    <p className="question-description">דרג/י את מידת 'הדתיות' של הבית בו גדלת: </p>
+                    <p>דרג/י את מידת 'הדתיות' של הבית בו גדלת: </p>
                     <ArcSlider
                         value={answers.Religious_bkg}
                         onValueChange={(field, val) => handleChange("Religious_bkg", val)}
@@ -145,7 +146,7 @@ const StatisticQuestions = () => {
                     />
                 </div>
 
-                <button type="submit" className="submit-button">שלח/י</button>
+                <button type="submit" className="button">שלח/י</button>
             </form>
         </div>
     );

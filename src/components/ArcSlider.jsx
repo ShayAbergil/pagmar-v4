@@ -51,8 +51,8 @@ const ArcSlider = ({ label, field, onValueChange, tickLabels = {} }) => {
       >
         <defs>
           <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#ff7e5f" />
-            <stop offset="100%" stopColor="#feb47b" />
+            <stop offset="0%" stopColor="#e8b0b9" />
+            <stop offset="100%" stopColor="#f7c525" />
           </linearGradient>
         </defs>
 
@@ -65,7 +65,7 @@ const ArcSlider = ({ label, field, onValueChange, tickLabels = {} }) => {
         />
         
         {/* Dot positioned on the top half of the circle */}
-        <circle cx={x} cy={y} r="10" fill="#444" />
+        <circle cx={x} cy={y} r="10" fill="#091d3b" />
         
         {/* Label near the arc */}
         <text
@@ -73,7 +73,7 @@ const ArcSlider = ({ label, field, onValueChange, tickLabels = {} }) => {
           y={centerY - radius}
           textAnchor="middle"
           fontSize="14"
-          fill="#333"
+          fill="#091d3b"
         >
           {label}
         </text>
@@ -89,7 +89,7 @@ const ArcSlider = ({ label, field, onValueChange, tickLabels = {} }) => {
               y={labelY - 12}
               textAnchor="middle"
               fontSize="14"
-              fill="#333"
+              fill="#091d3b"
             >
               {text}
             </text>

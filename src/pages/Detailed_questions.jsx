@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { dq_picker } from "../utils/dq_picker";
 import { supabase } from "../lib/supabase";
+import HeaderImage from '../components/HeaderImage';
 
 const DetailedQuestions = () => {
   const location = useLocation();

@@ -1,31 +1,36 @@
 @import './Colors.css';
 
 :root {
-    font-family: Heebo, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
-   
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    
-    /* Add RTL support */
-    direction: rtl;
-    text-align: right;
-  }
+  font-family: Heebo, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  width: 100%;
 
-  #root {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    text-align: right;
-    background-color: var(--background);
-  }  
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
- html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background-color: var(--background); 
- }
+  background-color: var(--background);
+
+  /* Add RTL support */
+  direction: rtl;
+  text-align: right;
+}
+
+html, body {
+  min-height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background);
+}
+
+#root {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+  background-color: var(--background);
+  width: 100%;
+}

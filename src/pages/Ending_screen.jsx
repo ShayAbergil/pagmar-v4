@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import HeaderImage from '../components/HeaderImage';
 
 const EndingScreen = () => {
   const location = useLocation();

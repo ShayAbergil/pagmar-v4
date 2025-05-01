@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { getRelevantQuestions } from '../utils/oq_picker';
+import HeaderImage from '../components/HeaderImage';
 
 const OverviewQuestions = () => {
   const navigate = useNavigate();
@@ -132,7 +133,7 @@ const OverviewQuestions = () => {
           </div>
         ))}
         <p>יש לענות על שאלה אחת לפחות</p>
-        <button type="submit" className="submit-button">שלח/י</button>
+        <button type="submit" className="button">שלח/י</button>
       </form>
     </div>
   );
