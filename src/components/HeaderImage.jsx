@@ -8,15 +8,15 @@ function HeaderImage() {
 
   // Define a map of paths to image filenames
   const imageMap = {
-    "/": "src/components/Header_img/Header_home.png",
-    "/Statistic_questions": "src/components/Header_img/Header_statistic.png",
-    "/Overview_questions": "src/components/Header_img/Header_oq_cut.png",
-    "/Select_subject": "src/components/Header_img/Header_subject.png",
-    "/Detailed_questions": "src/components/Header_img/Header_dq.png",
-    "/Ending_screen": "src/components/Header_img/Header_end.png",
+    "/": "Header_img/Header_home.png",
+    "/Statistic_questions": "Header_img/Header_statistic.png",
+    "/Overview_questions": "Header_img/Header_oq_cut.png",
+    "/Select_subject": "Header_img/Header_subject.png",
+    "/Detailed_questions": "Header_img/Header_dq.png",
+    "/Ending_screen": "Header_img/Header_end.png",
   };
 
-  const headerImage = imageMap[path] || "src/components/Header_img/Header_clean.png";
+  const headerImage = imageMap[path] || "Header_img/Header_clean.png";
   return (
     <div className="header-image-container">
       <img src={headerImage} alt="Header" className="header-image" />
