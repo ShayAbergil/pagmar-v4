@@ -75,6 +75,8 @@ const StatisticQuestions = () => {
 
     return (
         <div className="questions-container">
+            <HeaderImage />
+            <br></br>
             <h1>נתונים סטטיסטיים</h1>
             <p className="section-description">
                 <b>הבהרה: </b>הנתונים משפיעים על לשון הפניה והתאמה של שאלות בהמשך הסקר.

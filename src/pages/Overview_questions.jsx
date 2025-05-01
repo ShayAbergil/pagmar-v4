@@ -112,6 +112,8 @@ const OverviewQuestions = () => {
 
   return (
     <div className="overview-questions-container">
+      <HeaderImage />
+      <br></br>
       <h1>שאלות כלליות</h1>
       
       {!statistic_data && <p className="warning-text">⚠️ נתונים סטטיסטיים חסרים, אך ניתן להמשיך.</p>}

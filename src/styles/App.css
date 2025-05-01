@@ -1,4 +1,9 @@
-#root {
+@import './Colors.css';
+@import './Buttons.css';
+@import './Layouts.css';
+@import './Media.css';
+
+/* #root {
     max-width: 1280px;
     margin: 0 auto;
     padding: 2rem;
@@ -180,7 +185,7 @@
   }
   
   .subject-item {
-  /* margin-bottom: 1rem;*/
+     margin-bottom: 1rem;
     padding: .5rem;
   }
   
@@ -218,7 +223,7 @@
   }
   
   .question-block p {
-    margin-bottom: 0.5rem; /* reduces the gap */
+    margin-bottom: 0.5rem; /* reduces the gap 
   }
   
   .question-input,
@@ -231,4 +236,4 @@
     border: 1px solid #ccc;
     height: 180px;
     resize: vertical;
-  }
+  } */

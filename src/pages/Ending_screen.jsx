@@ -90,6 +90,8 @@ const EndingScreen = () => {
 
   return (
     <div style={{ padding: '2rem', maxWidth: '500px', margin: 'auto' }}>
+      <HeaderImage />
+      <br></br>
       <h1>תודה רבה!</h1>
       <p>
         התשבות שלך יעזרו לחשוף במעט את השינויים שהחברה הדתית עוברת ובעז"ה תעזור להעמיק את הדיון הפנימי והחשוב שקורה בחברה שלנו.

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
+import HeaderImage from '../components/HeaderImage';
+
 
 function Home() {
   const navigate = useNavigate();
@@ -40,7 +42,9 @@ function Home() {
   };
 
   return (
-    <div className="home-container">
+    <div className="container">
+    <HeaderImage />
+    <br></br>
       <h1>לְפְּסָפֶס את ההָלָכָה</h1>
       <h3> סקר אינטראקטבי למיפוי צמתי ההחלטה של דתיות ודתיים על הרצף</h3>
       {/* Video Section 
@@ -67,7 +71,7 @@ function Home() {
 <b>תודה רבה על ההשתתפות</b>
       </p>
       
-      <button className="start-button" onClick={handleStart}>בואו נתחיל</button>
+      <button className="button" onClick={handleStart}>בואו נתחיל</button>
     </div>
   );
 }

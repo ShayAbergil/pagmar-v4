@@ -95,6 +95,8 @@ const DetailedQuestions = () => {
 
   return (
     <div>
+      <HeaderImage />
+      <br></br>
       <h1>{subject.subject}</h1>
       <p>
         בחלק זה, שתף באנקדוטה מהיומיום שבה חל שינוי באופן שבו ראית את הנושא או פעלת לגביו.

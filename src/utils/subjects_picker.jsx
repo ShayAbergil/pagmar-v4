@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 export const fetchSubjects = async () => {
   try {
-    const { data, error } = await supabase.from('Subjects').select('*');
+    const { data, error } = await supabase.from('Subjects').select('*').eq('Subject_active', true);
     if (error) throw error;
 
     const subjectsWithScores = data.map(subject => ({

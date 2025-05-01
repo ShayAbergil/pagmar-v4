@@ -1,0 +1,69 @@
+@import './Colors.css';
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--blue2);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.start-button {
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.start-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.subject-button {
+  width: 100%;
+  text-align: right;
+  background: #f0f0f0;
+  border: none;
+  padding: 1rem;
+  margin-bottom: 0rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.subject-button:hover {
+  background: #e0e0e0;
+}

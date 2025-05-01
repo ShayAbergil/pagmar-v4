@@ -29,6 +29,8 @@ const SelectSubject = () => {
 
   return (
     <div className="select-subject-container" style={{ overflowY: "auto", maxHeight: "100vh", paddingBottom: "2rem" }}>
+      <HeaderImage />
+      <br></br>
       <h1>נושא לבחירה</h1>
       <ul className="subjects-list">
         {Array.isArray(subjects) &&

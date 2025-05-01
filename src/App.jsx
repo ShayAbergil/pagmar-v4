@@ -5,12 +5,12 @@ import OverviewQuestions from "./pages/Overview_questions";
 import SelectSubject from './pages/Select_subject';
 import DetailedQuestions from './pages/Detailed_questions';
 import EndingScreen from './pages/Ending_screen';
-import './App.css'
+import './styles/App.css'
 
 function App() {
   return (
     <Router>
-      <div className="app-container">
+      <div className="root">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Statistic_questions" element={<StatisticQuestions />} />
