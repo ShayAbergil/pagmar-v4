@@ -8,6 +8,7 @@ const SelectSubject = () => {
   const navigate = useNavigate(); // Navigation function
   const location = useLocation();
   const user_id = location.state?.user_id;
+  const statistic_data = location.state?.statistic_data || null;
   console.log("Received from location.state →", { user_id });
 
 
@@ -18,7 +19,7 @@ const SelectSubject = () => {
       // Add the custom option
       const customOption = {
         subject: "יש לי סיפור לספר",
-        description: "אפשר לבחור נושא אחר אם תרצה, או לספר סיפור חופשי.",
+        description: "אם יש לך מחשבה בנושא, או אנקדוטה שנראית לך רלוונטית - זה המקום לכתוב אותה",
       };
 
       setSubjects([...fetchedSubjects, customOption]);
@@ -28,7 +29,7 @@ const SelectSubject = () => {
   }, []);
 
   return (
-    <div className="select-subject-container" style={{ overflowY: "auto", maxHeight: "100vh", paddingBottom: "2rem" }}>
+    <div className="container">
       <HeaderImage />
       <br></br>
       <h1>נושא לבחירה</h1>
@@ -40,13 +41,16 @@ const SelectSubject = () => {
                 className="subject-button"
                 onClick={() =>
                   navigate("/Detailed_questions", {
-                    state: { subject, user_id },
+                    state: { subject, user_id, statistic_data },
                   })
                 }
               >
                 <h3>{subject.subject}</h3>
-              {/*  <p style={{ margin: "0.5rem 0" }}>
-              <b>בנושא זה ניתן לדבר על הדברים הבאים:</b> {subject.description}</p> */}
+                {subject.subject === "יש לי סיפור לספר" && subject.description && (
+          <p style={{ margin: "0.5rem 0", marginTop: "-1rem" }}>
+            {subject.description}
+          </p>
+             )}
               </button> 
             </li>
           ))}

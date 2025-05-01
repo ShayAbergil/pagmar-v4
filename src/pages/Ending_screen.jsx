@@ -7,6 +7,8 @@ const EndingScreen = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const user_id = location.state?.user_id;
+  const statistic_data = location.state?.statistic_data || null;
+
 
   // Provide initial values for state variables
   const [checked, setChecked] = useState(false);
@@ -90,7 +92,7 @@ const EndingScreen = () => {
   };
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '500px', margin: 'auto' }}>
+    <div className='container'>
       <HeaderImage />
       <br></br>
       <h1>תודה רבה!</h1>
@@ -98,16 +100,18 @@ const EndingScreen = () => {
         התשבות שלך יעזרו לחשוף במעט את השינויים שהחברה הדתית עוברת ובעז"ה תעזור להעמיק את הדיון הפנימי והחשוב שקורה בחברה שלנו.
         <br />
         וכמובן, יעזור לי לסיים את התואר!
-        <br />
+        <br></br>
         לשאלות, מענות טענות והמשיך הדיון ניתן ליצור איתי קשר בווטסאפ: 0544705188
+      </p>
+      <p>  {statistic_data?.gender === "גבר" 
+          ? "אשמח אם תוכל להפיץ את הסקר לחברות וחברים נוספים" 
+          : "אשמח אם תוכלי להפיץ את הסקר לחברות וחברים נוספים"}
         <br />
         <br />
-        וכמובן, ניתן להשאיר פרטי התקשרות למטה ואעדכן במייל באיך הפרויקט מתגלגל
-        <br />
-        שוב תודה. שי אברג'ל
+        ניתן להשאיר פרטי התקשרות למטה ואעדכן במייל בתוצאות הסקר
       </p>
 
-      <div style={{ margin: '1rem' }}>
+      <div>
         <label>
           <input
             type="checkbox"
@@ -120,38 +124,37 @@ const EndingScreen = () => {
       </div>
 
       {checked && (
-        <div style={{ marginBottom: '1rem' }}>
+        <div>
           <p>שמך וכתובת המייל נשמרים בנפרד מהתשובות לסקר, אנונימיותך נשמרת.</p>
           <div style={{ marginBottom: '1rem' }}>
             <input
               type="text"
+              className="input-text"
               placeholder="שם"
               value={name}
               onChange={(e) => setName(e.target.value)}
-              style={{ width: '100%', padding: '0.5rem', marginBottom: '1rem' }}
+              
             />
             <input
               type="email"
+              className="input-text"
               placeholder="כתובת מייל"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              style={{ width: '100%', padding: '0.5rem' }}
             />
           </div>
           <button onClick={handleSubmitMail} style={{ padding: '0.5rem 1rem' }}>
-            שלח פרטים
+            {personalInfoUpdated
+              ? "הפרטים עודכנו בהצלחה!"
+              : statistic_data?.gender === "גבר"
+                ? "שלח פרטים"
+                : "שלחי פרטים"}          
           </button>
         </div>
       )}
-
-      {personalInfoUpdated && <p style={{ color: 'green' }}>הפרטים שלך עודכנו בהצלחה!</p>}
-
-      <button
-        onClick={() => navigate('/')}
-        style={{ marginTop: '2rem', padding: '0.5rem 1rem' }}
-      >
-        חזרה לדף הבית
-      </button>
+      <p>
+שוב תודה. שי אברג'ל
+</p>
     </div>
   );
 };

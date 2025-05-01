@@ -10,6 +10,7 @@ const DetailedQuestions = () => {
 
   const { subject, user_id } = location.state || {};
   console.log("Received from location.state →", { subject, user_id });
+  const statistic_data = location.state?.statistic_data || null;
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState({});
 
@@ -95,7 +96,7 @@ const DetailedQuestions = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <HeaderImage />
       <br></br>
       <h1>{subject.subject}</h1>
@@ -104,16 +105,15 @@ const DetailedQuestions = () => {
         מתי זה קרה? מה השתנה? ואיך אתה מרגיש עם השינוי כיום? <br />
         דוגמאות לאנקדוטות רלוונטיות בנושא: {subject.description}
         <br />
-        <b>יש לענות על שאלה אחת לפחות</b>
       </p>
-
+    <div className="questions-list">
       {questions.map((q, index) => (
-        <div key={index}>
+        <div key={index} className="question-card">
           <p>{q.question}</p>
-
           {q.dq_type === "text" && (
             <input
               type="text"
+              className="input-field input-text"
               value={answers[index] || ""}
               onChange={(e) => handleAnswerChange(index, e.target.value)}
             />
@@ -121,6 +121,7 @@ const DetailedQuestions = () => {
 
           {q.dq_type === "textarea" && (
             <textarea
+              className="input-field input-textarea"
               value={answers[index] || ""}
               onChange={(e) => handleAnswerChange(index, e.target.value)}
             />
@@ -129,6 +130,7 @@ const DetailedQuestions = () => {
           {q.dq_type === "number" && (
             <input
               type="number"
+              className="input-field input-number"
               value={answers[index] || ""}
               onChange={(e) => handleAnswerChange(index, e.target.value)}
             />
@@ -137,12 +139,14 @@ const DetailedQuestions = () => {
       ))}
 
       <div>
-        <button onClick={() => handleClick("/Select_subject")}>
+      <p><b> יש לענות על שאלה אחת לפחות</b></p>
+        <button onClick={() => handleClick("/Select_subject", { state: { user_id, statistic_data } })}>
           עוד סבב של שאלות
         </button>
-        <button onClick={() => handleClick("/Ending_screen")}>
+        <button onClick={() => handleClick("/Ending_screen", { state: { user_id, statistic_data } })}>
           מספיק לי לבינתיים
         </button>
+      </div>
       </div>
     </div>
   );

@@ -10,7 +10,7 @@ function HeaderImage() {
   const imageMap = {
     "/": "src/components/Header_img/Header_home.png",
     "/Statistic_questions": "src/components/Header_img/Header_statistic.png",
-    "/Overview_questions": "src/components/Header_img/Header_oq.png",
+    "/Overview_questions": "src/components/Header_img/Header_oq_cut.png",
     "/Select_subject": "src/components/Header_img/Header_subject.png",
     "/Detailed_questions": "src/components/Header_img/Header_dq.png",
     "/Ending_screen": "src/components/Header_img/Header_end.png",
