@@ -19,6 +19,7 @@
 .container p {
   max-width: 1280px;
   line-height: 1.6;
+  text-align: justify;
 }
 
 .questions-list {
