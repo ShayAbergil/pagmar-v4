@@ -16,7 +16,7 @@ const DetailedQuestions = () => {
 
   useEffect(() => {
     const loadQuestions = async () => {
-      const fetchedQuestions = await dq_picker(subject.subject);
+      const fetchedQuestions = await dq_picker(subject.subject, statistic_data);
       setQuestions(fetchedQuestions);
     };
 

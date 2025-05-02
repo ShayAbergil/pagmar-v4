@@ -114,7 +114,7 @@ const OverviewQuestions = () => {
         {questions.map((question) => (
           <div key={question.id} className="question-card">
             <h3>{question.oq_text}</h3>
-            <input
+            <textarea
               type={question.oq_type === 'int8' ? 'number' : 'text'}
               className="input-field"
               value={answers[question.id] || ''}

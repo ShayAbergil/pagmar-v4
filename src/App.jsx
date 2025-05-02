@@ -5,12 +5,14 @@ import OverviewQuestions from "./pages/Overview_questions";
 import SelectSubject from './pages/Select_subject';
 import DetailedQuestions from './pages/Detailed_questions';
 import EndingScreen from './pages/Ending_screen';
+import ScrollToTop from './components/ScrollToTop';
 import './styles/App.css'
 
 function App() {
   return (
     <Router>
       <div className="root">
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Statistic_questions" element={<StatisticQuestions />} />

@@ -27,7 +27,7 @@
   width: 90%;
   max-width: 768px;
   gap: 1.5rem;
-  margin-top: 2rem;
+  margin-top: 0rem;
 }
 
 .question-card {
@@ -52,6 +52,26 @@
   font-size: 1rem;
 }
 
+.location-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-select {
+  flex: 1;
+  display: flex;
+  align-items: right;
+}
+
+.location-select label {
+  margin-left: 10px;
+  align-self: center;
+  font-size: 16px;
+  white-space: nowrap;
+  color: var(--blue-dark);
+}
 
 .input-field {
   width: 100%;
@@ -64,9 +84,14 @@
   margin-bottom: 1rem;
   box-sizing: border-box;
   text-align: right;
-  min-height: 100px;
   resize: vertical;
+  min-height: calc(1em * 1.4 * 3 + 1rem); /* 3 lines + padding */
+  line-height: 1.4;
+  overflow-y: auto !important;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
+
 
 .form-input,
 .form-select,
@@ -81,6 +106,7 @@
   margin-bottom: 1rem;
   box-sizing: border-box;
   text-align: right;
+  align-self: center;
 }
 
 input[type="range"] {
