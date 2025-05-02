@@ -3,13 +3,13 @@ import { useLocation } from "react-router-dom";
 import './HeaderImage.css';
 
 // Import images from the Header_img folder
-import Header_home from '/workspaces/pagmar-v4/Header_img/Header_home.png';
-import Header_statistic from '/workspaces/pagmar-v4/Header_img/Header_statistic.png';
-import Header_oq_cut from '/workspaces/pagmar-v4/Header_img/Header_oq_cut.png';
-import Header_subject from '/workspaces/pagmar-v4/Header_img/Header_subject.png';
-import Header_dq from '/workspaces/pagmar-v4/Header_img/Header_dq.png';
-import Header_end from '/workspaces/pagmar-v4/Header_img/Header_end.png';
-import Header_clean from '/workspaces/pagmar-v4/Header_img/Header_clean.png';
+import Header_home from '/Header_img/Header_home.png';
+import Header_statistic from '/Header_img/Header_statistic.png';
+import Header_oq_cut from '/Header_img/Header_oq_cut.png';
+import Header_subject from '/Header_img/Header_subject.png';
+import Header_dq from '/Header_img/Header_dq.png';
+import Header_end from '/Header_img/Header_end.png';
+import Header_clean from '/Header_img/Header_clean.png';
 
 function HeaderImage() {
   const location = useLocation();
