@@ -22,22 +22,21 @@ export const fetchSubjects = async () => {
       grouped[s.subject_type].push(s);
     }
 
-    // Find first 2 subject_types that have at least 3 subjects
+    // Find first 3 subject_types that have at least 3 subjects
     const selectedTypes = Object.entries(grouped)
       .filter(([_, subjects]) => subjects.length >= 3)
-      .slice(0, 2); // get only 2 types
+      .slice(0, 3); // get only 3 types
 
-    if (selectedTypes.length < 2) {
+    if (selectedTypes.length < 3) {
       console.warn('Not enough types with 3 subjects each');
       return [];
     }
 
-    // Take 3 subjects per selected type
+    // Take 2 subjects per selected type
     const chosenSubjects = selectedTypes
-      .map(([_, subjects]) => subjects.slice(0, 3))
+      .map(([_, subjects]) => subjects.slice(0, 2))
       .flat();
 
-    console.log('All Subjects with Scores:', subjectsWithScores);
     console.log('Chosen Subjects:', chosenSubjects);
 
     return chosenSubjects;
