@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
+// import { supabase } from '../lib/supabase';
 import HeaderImage from '../components/HeaderImage';
 import images from "../components/Assets";
 
@@ -20,23 +20,15 @@ function Home() {
     const timeSpentSeconds = Math.floor((exitTime - entryTime) / 1000);
     const poll_version = "pilot1"; // Hard coded poll version
 
-    // Insert a new row into the User_records table
-    const { data, error } = await supabase
-      .from('User_records')
-      .insert([
-        {
-          user_id: user_id,
-          time_in_hp: timeSpentSeconds,
-          poll_version: poll_version
-          // start_ts can be default in Supabase (created_at with default now())
-        }
-      ]);
-
-    if (error) {
-      console.error('Error inserting into Supabase:', error.message);
-    } else {
-      console.log('Record added to User_records:', data);
-    }
+    await fetch('/api/overview?action=insertUserRecord', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        user_id,
+        timeSpentSeconds,
+        poll_version
+      }),
+    })
 
     // Navigate to the next page
     navigate('/Statistic_questions', { state: { user_id } });

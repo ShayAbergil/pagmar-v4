@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { supabase } from '../lib/supabase';
+// import { supabase } from '../lib/supabase';
 import { getRelevantQuestions } from '../utils/oq_picker';
 import HeaderImage from '../components/HeaderImage';
 
@@ -12,8 +12,6 @@ const OverviewQuestions = () => {
 
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState({});
-
-  console.log("✅ Received statistic_data:", statistic_data);
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -33,7 +31,7 @@ const OverviewQuestions = () => {
   };
 
   const handleSubmit = async () => {
-    console.log("📤 Submitting answers:", answers);
+    console.log("Submitting answers:", answers);
 
     const userAnswers = questions.map((question) => {
       const answerValue = answers[question.id];
@@ -56,11 +54,12 @@ const OverviewQuestions = () => {
     }
 
     try {
-      console.log("📤 Pushing data to 'Overview_answers':", userAnswers);
-      const { data, error } = await supabase
-        .from("Overview_answers")
-        .insert(userAnswers)
-        .select();
+      console.log("Pushing data to 'Overview_answers':", userAnswers);
+      await fetch('/api/overview?action=insertAnswers', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ userAnswers }),
+      })
 
       if (error) throw error;
       console.log("✅ Successfully submitted answers:", data);
@@ -68,11 +67,11 @@ const OverviewQuestions = () => {
       await Promise.all(userAnswers.map(async (answer) => {
         if (answer.answer_content_t || answer.answer_content_int !== null) {
           console.log(`📊 Incrementing count for question ID: ${answer.oq_id}`);
-          const { data, error } = await supabase
-            .from("Overview_questions")
-            .select("oq_answer_count")
-            .eq("id", answer.oq_id)
-            .single();
+          await fetch('/api/overview?action=incrementCounts', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userAnswers }),
+          })
 
           if (error) {
             console.error("🚨 Error fetching current answer count:", error.message);

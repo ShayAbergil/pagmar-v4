@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { supabase } from "../lib/supabase";
 import ArcSlider from "../components/ArcSlider";
+import AlartMessage from "../components/AlartMessage";
 import HeaderImage from "../components/HeaderImage";
+import { insertStatisticData, updateReligiousBkg } from "../pages/api/statistic_data_apis.js"; // import the API functions
 
 const StatisticQuestions = () => {
   const navigate = useNavigate();
@@ -23,6 +24,8 @@ const StatisticQuestions = () => {
   const [grewUpReligious, setGrewUpReligious] = useState(false);
   const [grewUpNonReligious, setGrewUpNonReligious] = useState(false);
   const [error, setError] = useState("");
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
 
   const options = {
     gender: ["גבר", "אישה", "א-בינארי", "מעדיפ/ה לא לומר"],
@@ -71,28 +74,18 @@ const StatisticQuestions = () => {
     try {
       if (grewUpNonReligious) {
         handleChange("Religious_bkg", 0);
-        const { error: updateError } = await supabase
-          .from("User_records")
-          .update({ Religious_bkg: false })
-          .eq("user_id", user_id);
-
-        if (updateError) throw updateError;
+        await updateReligiousBkg(user_id, false); // API call to update Religious_bkg
       }
 
-      const { data, error } = await supabase
-        .from("Statistic_data")
-        .insert([{ ...answers }])
-        .select()
-        .single();
-
-      if (error) throw error;
+      const data = await insertStatisticData(answers); // API call to insert statistic data
 
       navigate("/Overview_questions", {
         state: { statistic_data: data, user_id },
       });
     } catch (err) {
       console.error("Error:", err.message);
-      setError("שגיאה בשליחה. נסה/י שוב.");
+      setAlertMessage("שגיאה בשליחה. נסה/י שוב.");
+      setShowAlert(true);
     }
   };
 
@@ -253,6 +246,12 @@ const StatisticQuestions = () => {
 
         <button type="submit" className="button">שלח/י</button>
       </form>
+      {showAlert && (
+      <AlartMessage
+         message={alertMessage}
+         onClose={() => setShowAlert(false)}
+      />
+      )}
     </div>
   );
 };
