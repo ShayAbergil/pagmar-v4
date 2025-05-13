@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import ArcSlider from "../components/ArcSlider";
 import AlartMessage from "../components/AlartMessage";
 import HeaderImage from "../components/HeaderImage";
-import { insertStatisticData, updateReligiousBkg } from "../pages/api/statistic_data_apis.js"; // import the API functions
+import { insertStatisticData, updateReligiousBkg } from "../../.vercel/pages/api/statistic_data_apis.js"; // import the API functions
 
 const StatisticQuestions = () => {
   const navigate = useNavigate();
